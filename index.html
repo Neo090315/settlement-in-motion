@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>A Settlement in Motion</title>
+<meta name="description" content="上昇する水とともに暮らす集落 — Neo Shimane, Fondation Jacques Rougerie 2026">
+<meta property="og:title" content="A Settlement in Motion / 動きつづける集落">
+<meta property="og:description" content="上昇する水とともに暮らす集落 — Neo Shimane, Fondation Jacques Rougerie 2026">
+<meta property="og:image" content="cover-poster.jpg">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: film up top, then a shelf of the printed works, each with its own download. Navy & concrete from the A0 board. JA default, EN toggle. */
+:root{
+  --bg:#f3f2ee; --surface:#ffffff; --ink:#0d1b2a; --muted:#56687a; --line:#d9dcdc; --water:#1f7f79; --water-ink:#ffffff; color-scheme:light;
+  --display:"Archivo","Zen Kaku Gothic New",system-ui,sans-serif; --jp:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--display);font-size:15px}
+:root:lang(ja) body{font-family:var(--jp)}
+main{max-width:1100px;margin:0 auto;padding-block:clamp(16px,4vw,40px) 56px;padding-inline:16px;display:grid;gap:28px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0}
+:lang(ja) .eyebrow{font-family:var(--jp);letter-spacing:.08em}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.lang button{font:600 13px var(--mono);border:0;border-radius:999px;padding:6px 14px;background:transparent;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lang button:focus-visible{outline:2px solid var(--water);outline-offset:2px}
+header{display:grid;gap:12px}
+h1{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:clamp(30px,6.5vw,64px);line-height:.98;margin:0;text-wrap:balance}
+h1 span{color:var(--water)}
+.jtitle{font-family:var(--jp);font-weight:700;font-size:clamp(17px,2.6vw,22px);margin:0;letter-spacing:.06em}
+.lede{max-width:62ch;font-size:16px;line-height:1.7;margin:0}
+:lang(ja) .lede{max-width:38em;line-height:1.9}
+video{width:100%;max-width:100%;aspect-ratio:16/9;background:#000;border-radius:6px;display:block}
+h2{font-stretch:110%;font-size:20px;margin:0}
+.shelf{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.thumb{aspect-ratio:4/3;background:var(--line);overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.body{padding:14px 16px 16px;display:grid;gap:6px;flex:1}
+.body h3{margin:0;font-size:17px;font-stretch:105%}
+.spec{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
+.actions a{font-weight:600;font-size:14px;font-family:inherit;border-radius:4px;padding:9px 14px;cursor:pointer;text-decoration:none;border:1px solid var(--water)}
+.actions a.dl{background:var(--water);color:var(--water-ink)}
+.actions a.op{background:transparent;color:var(--water)}
+.actions a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.actions button:disabled{opacity:.5;cursor:default}
+.status{font-family:inherit;font-size:12px;color:var(--muted);min-height:1em}
+footer{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-wrap:wrap;gap:8px 24px;font-size:13px;color:var(--muted)}
+footer b{color:var(--ink);font-weight:500}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <p class="eyebrow" data-i18n="eyebrow"></p>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-ja" data-lang="ja" aria-pressed="true">日本語</button>
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+  <header>
+    <h1>A Settlement <span>in Motion</span></h1>
+    <p class="jtitle" data-i18n="subtitle"></p>
+    <p class="lede" data-i18n="lede"></p>
+  </header>
+
+  <video id="film" src="files/settlement-in-motion.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
+
+  <h2 data-i18n="files"></h2>
+  <div class="shelf" id="shelf"></div>
+
+  <footer>
+    <span><span data-i18n="site"></span> <b data-i18n="siteVal"></b></span>
+    <span><span data-i18n="author"></span> <b data-i18n="authorVal"></b></span>
+    <span><span data-i18n="category"></span> <b data-i18n="categoryVal"></b></span>
+  </footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
