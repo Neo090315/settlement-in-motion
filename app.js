@@ -42,10 +42,10 @@ const T={
   }
 };
 const FILES=[
-  {id:"poster",src:"files/poster-a0.pdf",name:"A Settlement in Motion - A0 Board - Neo Shimane.pdf",img:"cover-poster.jpg"},
-  {id:"book",src:"files/book.pdf",name:"A Settlement in Motion - Book - Neo Shimane.pdf",img:"cover-book.jpg"},
-  {id:"slides",src:"files/presentation.pdf",name:"A Settlement in Motion - Presentation - Neo Shimane.pdf",img:"cover-slides.jpg"},
-  {id:"film",src:"files/settlement-in-motion.mp4",name:"A Settlement in Motion - Film - Neo Shimane.mp4",img:"poster.jpg"}
+  {id:"poster",src:"poster-a0.pdf",name:"A Settlement in Motion - A0 Board - Neo Shimane.pdf",img:"cover-poster.jpg"},
+  {id:"book",src:"book.pdf",name:"A Settlement in Motion - Book - Neo Shimane.pdf",img:"cover-book.jpg"},
+  {id:"slides",src:"presentation.pdf",name:"A Settlement in Motion - Presentation - Neo Shimane.pdf",img:"cover-slides.jpg"},
+  {id:"film",src:"settlement-in-motion.mp4",name:"A Settlement in Motion - Film - Neo Shimane.mp4",img:"poster.jpg"}
 ];
 let lang="ja";
 const shelf=document.getElementById("shelf");
